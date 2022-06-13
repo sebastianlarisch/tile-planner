@@ -1,0 +1,7 @@
+parameters:
+  phpVersion: 80099
+  level: 5 
+  paths:
+    - src
+  bootstrapFiles:
+    - phpstan-bootstrap.php

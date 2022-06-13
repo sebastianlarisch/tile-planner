@@ -1,0 +1,246 @@
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+$primary-color: #214139;
+$secondary-color: #1abc9c;
+
+a {
+  text-decoration: none;
+  color: $white;
+
+  &:hover {
+    color: $gray-400;
+  }
+}
+
+.header {
+  text-align: right;
+  background: $primary-color;
+  color: $white;
+  line-height: 1.5rem;
+  padding: 5px;
+
+  @media (min-width: 992px) {
+    padding: 0;
+  }
+
+  svg {
+    font-size: 2rem;
+  }
+}
+
+.navbar {
+  display: block;
+
+  .nav-item {
+    padding: 10px 7px;
+  }
+
+  .navbar-toggler {
+    border: none;
+    color: $white;
+    box-shadow: none;
+  }
+
+  a {
+    padding: 10px;
+    text-transform: uppercase;
+  }
+}
+
+.navbar-brand {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 999;
+
+  span {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-top: 2px;
+    float: right;
+  }
+}
+
+footer {
+  background-color: $primary-color;
+  color: $white;
+  font-size: 0.8rem;
+
+  svg {
+    margin-top: -2px;
+  }
+}
+
+.bg-image {
+  background-image: url('../img/background-tile-planner.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.headline {
+  text-transform: uppercase;
+  font-size: 2em;
+
+  @media (min-width: 992px) {
+    font-size: 3em;
+  }
+
+  font-weight: bold;
+}
+
+.subline {
+  font-size: 1em;
+  @media (min-width: 992px) {
+    font-size: 1.5em;
+  }
+}
+
+.bg-modal {
+  background-color: #00000050;
+  height: 100%;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  color: $white;
+}
+
+section {
+  position: relative;
+}
+
+section#planner {
+  background: $gray-100;
+  height: 100%;
+}
+
+section#contact {
+  background: $gray-500;
+  min-height: 100vh;
+
+  @media (min-width: 992px) {
+    min-height: 80vh;
+  }
+}
+
+.configuration {
+  background-color: $gray-200;
+}
+
+.tile-row {
+  width: 100%;
+  float:left;
+  display:block;
+
+  .tile:last-child {
+    border-right: 1px solid $gray-800;
+  }
+
+  &.last > .tile {
+    border-bottom: 1px solid $gray-800;
+  }
+}
+
+::placeholder {
+  color: $gray-500 !important;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+:-ms-input-placeholder {
+  color: $gray-300;
+}
+
+::-ms-input-placeholder {
+  color: $gray-300;
+}
+
+.tile {
+  padding: 0.5rem;
+  color: #333;
+  position: relative;
+  height: 100%;
+  float: left;
+  background-color: #e9f7f4;
+  border-left: 1px solid $gray-800;
+  border-top: 1px solid $gray-800;
+
+  &:hover {
+    background: $gray-200;
+    cursor: pointer;
+  }
+
+  &.hover {
+    background: $gray-200;
+    cursor: pointer;
+  }
+
+  &.black {
+    background-color: $black;
+    color: $white;
+  }
+
+  &.white {
+    background-color: $white;
+  }
+}
+
+span.measure {
+  font-size: 0.7rem;
+  position: absolute;
+  bottom: 0;
+  left: 2px;
+}
+
+span.number {
+  position: absolute;
+  right: 5px;
+  top: 2px;
+  font-size: 10px;
+  color: $gray-500;
+}
+
+.btn-primary {
+  background-color: $secondary-color;
+  border: none;
+  border-radius: 0;
+  padding: 10px;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+
+.plan {
+  position: relative;
+  margin-bottom: 70px;
+}
+
+span#room-length {
+  position: absolute;
+  top: -20px;
+  font-size: 0.7rem;
+  margin-left: 45%;
+}
+
+span#room-width {
+  position: absolute;
+  left: -28px;
+  font-size: 0.7rem;
+  top: 50%;
+  transform: rotate(270deg);
+}
+
+.form-check-input:checked {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+}

@@ -1,0 +1,9 @@
+<div class="col-lg-6">
+    <div class="form-label">
+        {{ form_label(field) }}
+    </div>
+    <div class="input-group">
+        {{ form_widget(field, {'attr': {'class': 'form-control'}}) }}
+        <span class="input-group-text">{{ unit|default('cm')|replace({'^2': '<sup>2</sup>'})|raw }}</span>
+    </div>
+</div>
