@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\LayerPlannerType;
+use App\LayerPlanner\LayerPlannerFacadeInterface;
 use App\LayerPlanner\LayerPlannerFactory;
 use App\LayerPlanner\Models\LayerPlanInput;
 use Assert\InvalidArgumentException;
@@ -13,11 +14,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LayerPlannerController extends AbstractController
 {
-    private LayerPlannerFactory $factory;
+    private LayerPlannerFacadeInterface $layerPlannerFacade;
 
-    public function __construct(LayerPlannerFactory $factory)
+    public function __construct(LayerPlannerFacadeInterface $layerPlannerFacade)
     {
-        $this->factory = $factory;
+        $this->layerPlannerFacade = $layerPlannerFacade;
     }
 
     #[Route('/', name: 'index')]
@@ -39,8 +40,7 @@ class LayerPlannerController extends AbstractController
                 );
             }
 
-            $plan = $this->factory
-                ->createLayerPlannerByType($layerInput->getLayingType())
+            $plan = $this->layerPlannerFacade
                 ->createPlan($layerInput);
         }
 
