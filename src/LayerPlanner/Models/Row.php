@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\LayerPlanner\Models;
 
-final class Row
+use JsonSerializable;
+
+final class Row implements JsonSerializable
 {
     private array $tiles = [];
 
@@ -30,5 +32,10 @@ final class Row
     public function getWidthPercent(): float
     {
         return $this->widthPercent;
+    }
+
+    public function jsonSerialize(): object
+    {
+        return (object)get_object_vars($this);
     }
 }

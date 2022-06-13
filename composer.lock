@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "76c44160af0fc93a78e1a8437e1b6a20",
+    "content-hash": "6d2c2914b780504f70ae024bedb53b48",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1645,6 +1645,68 @@
                 }
             ],
             "time": "2021-12-19T18:06:55+00:00"
+        },
+        {
+            "name": "matthiasnoback/symfony-console-form",
+            "version": "v5.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/matthiasnoback/symfony-console-form.git",
+                "reference": "4a68a18f8818709125dc337d2158f396edf722aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matthiasnoback/symfony-console-form/zipball/4a68a18f8818709125dc337d2158f396edf722aa",
+                "reference": "4a68a18f8818709125dc337d2158f396edf722aa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0",
+                "symfony/console": "~5.0 || ~6.0",
+                "symfony/form": "~5.0 || ~6.0",
+                "symfony/translation": "~5.0 || ~6.0"
+            },
+            "require-dev": {
+                "beberlei/assert": "~2.1",
+                "behat/behat": "^3.6",
+                "phpunit/phpunit": "^9.5",
+                "symfony/finder": "~5 || ~6.0.0",
+                "symfony/framework-bundle": "~5.0 || ~6.0",
+                "symfony/security-csrf": "~5.0 || ~6.0",
+                "symfony/validator": "~5.0 || ~6.0",
+                "symfony/yaml": "~5.0 || ~6.0",
+                "symplify/coding-standard": "^9.4",
+                "symplify/easy-coding-standard": "^9.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Matthias\\SymfonyConsoleForm\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Noback",
+                    "email": "matthiasnoback@gmail.com",
+                    "homepage": "http://php-and-symfony.matthiasnoback.nl"
+                }
+            ],
+            "description": "Use Symfony forms for Console command input",
+            "homepage": "http://github.com/matthiasnoback/symfony-console-form",
+            "keywords": [
+                "console",
+                "form",
+                "symfony"
+            ],
+            "support": {
+                "issues": "https://github.com/matthiasnoback/symfony-console-form/issues",
+                "source": "https://github.com/matthiasnoback/symfony-console-form/tree/v5.3.0"
+            },
+            "time": "2022-03-30T15:01:15+00:00"
         },
         {
             "name": "monolog/monolog",

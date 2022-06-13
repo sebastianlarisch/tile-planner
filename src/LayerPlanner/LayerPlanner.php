@@ -24,8 +24,6 @@ final class LayerPlanner
 
     public function createPlan(LayerPlanInput $layerInput): LayerPlan
     {
-        dd($layerInput);
-
         $plan = new LayerPlan();
         $totalRows = $this->getTotalRows($layerInput);
 

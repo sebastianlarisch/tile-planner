@@ -16,8 +16,8 @@ final class LayerPlannerFacade implements LayerPlannerFacadeInterface
         $this->factory = $factory;
     }
 
-    public function createPlan(LayerPlanInput $layerInput): LayerPlan {
-
+    public function createPlan(LayerPlanInput $layerInput): LayerPlan
+    {
         return $this->factory
             ->createLayerPlannerByType($layerInput->getLayingType())
             ->createPlan($layerInput);

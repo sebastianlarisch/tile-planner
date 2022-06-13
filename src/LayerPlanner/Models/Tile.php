@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\LayerPlanner\Models;
 
-final class Tile
+use JsonSerializable;
+
+final class Tile implements JsonSerializable
 {
     private float $width;
 
@@ -62,5 +64,10 @@ final class Tile
     public function getLengthPercent(): float
     {
         return $this->lengthPercent;
+    }
+
+    public function jsonSerialize(): object
+    {
+        return (object)get_object_vars($this);
     }
 }
