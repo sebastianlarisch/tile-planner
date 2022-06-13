@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\LayerPlanner\Models;
 
-final class LayerPlan
+use JsonSerializable;
+
+final class LayerPlan implements JsonSerializable
 {
     private array $rows = [];
 
@@ -175,5 +177,10 @@ final class LayerPlan
         $this->roomDepth = $roomDepth;
 
         return $this;
+    }
+
+    public function jsonSerialize(): object
+    {
+        return (object)get_object_vars($this);
     }
 }
