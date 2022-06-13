@@ -46,7 +46,7 @@ class LayerPlannerType extends AbstractType
                 TextType::class,
                 [
                     'required' => true,
-                    'label' => 'Fugenbreite',
+                    'label' => 'Fugenbreite [cm]',
                     'attr' => [
                         'placeholder' => '0,5'
                     ]
@@ -57,7 +57,7 @@ class LayerPlannerType extends AbstractType
                 TextType::class,
                 [
                     'required' => true,
-                    'label' => 'Breite',
+                    'label' => 'Raumbreite [cm]',
                     'attr' => [
                         'placeholder' => '450'
                     ]
@@ -68,7 +68,7 @@ class LayerPlannerType extends AbstractType
                 TextType::class,
                 [
                     'required' => true,
-                    'label' => 'Tiefe',
+                    'label' => 'Raumtiefe [cm]',
                     'attr' => [
                         'placeholder' => '330'
                     ]
@@ -79,7 +79,7 @@ class LayerPlannerType extends AbstractType
                 TextType::class,
                 [
                     'required' => true,
-                    'label' => 'Länge',
+                    'label' => 'Länge Paneele [cm]',
                     'attr' => [
                         'placeholder' => '120'
                     ]
@@ -90,7 +90,7 @@ class LayerPlannerType extends AbstractType
                 TextType::class,
                 [
                     'required' => true,
-                    'label' => 'Breite',
+                    'label' => 'Breite Paneele [cm]',
                     'attr' => [
                         'placeholder' => '20'
                     ]
@@ -101,7 +101,7 @@ class LayerPlannerType extends AbstractType
                 TextType::class,
                 [
                     'required' => true,
-                    'label' => 'Mindesbreite Paneele',
+                    'label' => 'Mindesbreite Paneele [cm]',
                     'attr' => [
                         'placeholder' => '30'
                     ]
@@ -112,7 +112,7 @@ class LayerPlannerType extends AbstractType
                 TextType::class,
                 [
                     'required' => false,
-                    'label' => 'Kosten pro Quadratmeter',
+                    'label' => 'Kosten pro Quadratmeter [e.g. 12.99]',
                     'attr' => [
                         'placeholder' => '29,95'
                     ]
