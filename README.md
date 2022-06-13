@@ -4,7 +4,7 @@
 
 1. Get Repository rom GitHub
 ```
-composer require sebastianlarisch/layer-planner
+composer require sebastianlarisch/tile-planner
 ```
 2. Install node packages (Sass, Bootstrap)
 ```
