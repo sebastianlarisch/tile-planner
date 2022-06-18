@@ -1,6 +1,6 @@
 {
-    "name": "sebastianlarisch/layer-planner",
-    "description": "Layer Planner Tool",
+    "name": "sebastianlarisch/tile-planner",
+    "description": "Tile Planning Tool",
     "type": "library",
     "license": "proprietary",
     "minimum-stability": "stable",
