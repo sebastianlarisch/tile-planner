@@ -6,7 +6,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.0.2",
+        "php": ">=7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "beberlei/assert": "^3.3",
