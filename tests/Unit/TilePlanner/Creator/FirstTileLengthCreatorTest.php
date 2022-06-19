@@ -29,7 +29,7 @@ final class FirstTileLengthCreatorTest extends TestCase
 
     public function setUp(): void
     {
-        $this->tileInput = TilePlanInput::fromFormData(self::PLAN_INPUT_DATA);
+        $this->tileInput = TilePlanInput::fromData(self::PLAN_INPUT_DATA);
     }
 
     public function test_calculate_uses_defaults_without_any_calculator(): void

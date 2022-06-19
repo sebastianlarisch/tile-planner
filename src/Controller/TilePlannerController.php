@@ -29,7 +29,7 @@ class TilePlannerController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             try {
-                $tileInput = TilePlanInput::fromFormData($form->getData());
+                $tileInput = TilePlanInput::fromData($form->getData());
             } catch (InvalidArgumentException $exception) {
                 return $this->render(
                     'index.twig',

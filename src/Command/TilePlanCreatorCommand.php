@@ -27,7 +27,7 @@ final class TilePlanCreatorCommand extends Command
     {
         $formHelper = $this->getHelper('form');
         $formData = $formHelper->interactUsingForm(TilePlannerType::class, $input, $output);
-        $tileInput = TilePlanInput::fromFormData($formData);
+        $tileInput = TilePlanInput::fromData($formData);
 
         $tilePlan = $this->tilePlannerFacade->createPlan($tileInput);
 

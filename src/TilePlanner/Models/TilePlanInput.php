@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\TilePlanner\Models;
 
+use App\Form\TilePlannerType;
 use Assert\Assert;
 
 final class TilePlanInput
@@ -14,8 +15,8 @@ final class TilePlanInput
     private float $tileLength;
     private float $minTileLength;
     private float $gapWidth;
-    private string $layingType;
     private float $costsPerSquare;
+    private string $layingType;
 
     private function __construct(
         float $roomWidth,
@@ -23,8 +24,8 @@ final class TilePlanInput
         float $tileWidth,
         float $tileLength,
         float $minTileLength,
-        float $gapWidth,
         string $layingType,
+        float $gapWidth,
         float $costsPerSquare,
     ) {
         $this->roomWidth = $roomWidth;
@@ -32,24 +33,24 @@ final class TilePlanInput
         $this->tileWidth = $tileWidth;
         $this->tileLength = $tileLength;
         $this->minTileLength = $minTileLength;
-        $this->gapWidth = $this->convertToCm($gapWidth);
         $this->layingType = $layingType;
+        $this->gapWidth = $this->convertToCm($gapWidth);
         $this->costsPerSquare = $costsPerSquare;
 
         Assert::that($roomWidth)->notEmpty();
     }
 
-    public static function fromFormData(array $formData): self
+    public static function fromData(array $inputData): self
     {
         return new self(
-            (float)$formData['room_width'],
-            (float)$formData['room_depth'],
-            (float)$formData['tile_width'],
-            (float)$formData['tile_length'],
-            (float)$formData['min_tile_length'],
-            (float)$formData['gap_width'],
-            (string)$formData['laying_type'],
-            (float)$formData['costs_per_square'],
+            (float)$inputData['room_width'],
+            (float)$inputData['room_depth'],
+            (float)$inputData['tile_width'],
+            (float)$inputData['tile_length'],
+            (float)$inputData['min_tile_length'],
+            (string)($inputData['laying_type'] ?? 'offset'),
+            (float)($inputData['gap_width'] ?? 0),
+            (float)($inputData['costs_per_square'] ?? 0),
         );
     }
 
@@ -116,9 +117,9 @@ final class TilePlanInput
         return $this->layingType;
     }
 
-    public function setLayingType(string $layingType): void
+    public function isOffsetLayingType(bool $isOffset): void
     {
-        $this->layingType = $layingType;
+        $this->layingType = $isOffset ? TilePlannerType::TYPE_OFFSET : TilePlannerType::TYPE_CHESS;
     }
 
     public function getRoomWidthWithGaps(): float

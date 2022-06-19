@@ -18,7 +18,7 @@ final class LastTileFittingCreatorTest extends TestCase
     {
         $creator = new LastTileFittingCreator();
 
-        $tileInput = TilePlanInput::fromFormData(
+        $tileInput = TilePlanInput::fromData(
             [
             'room_width' => '200',
             'room_depth' => '100',

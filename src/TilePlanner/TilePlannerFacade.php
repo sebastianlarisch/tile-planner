@@ -7,7 +7,7 @@ namespace App\TilePlanner;
 use App\TilePlanner\Models\TilePlan;
 use App\TilePlanner\Models\TilePlanInput;
 
-final class TileTilePlannerFacade implements TilePlannerFacadeInterface
+final class TilePlannerFacade implements TilePlannerFacadeInterface
 {
     private TilePlannerFactory $factory;
 
@@ -19,7 +19,7 @@ final class TileTilePlannerFacade implements TilePlannerFacadeInterface
     public function createPlan(TilePlanInput $tileInput): TilePlan
     {
         return $this->factory
-            ->createtilePlannerByType($tileInput->getLayingType())
-            ->createPlan($tileInput);
+            ->createTilePlanCreator($tileInput->getLayingType())
+            ->create($tileInput);
     }
 }

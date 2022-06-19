@@ -117,7 +117,7 @@ final class TilePlan implements JsonSerializable
 
     public function setTotalArea(float $totalAreaInSquareCm): self
     {
-        $this->totalArea = $this->inSquareMeter($totalAreaInSquareCm);
+        $this->totalArea = $totalAreaInSquareCm;
 
         return $this;
     }
@@ -125,6 +125,11 @@ final class TilePlan implements JsonSerializable
     public function getTotalArea(): float
     {
         return $this->totalArea;
+    }
+
+    public function getTotalAreaInSquareMeter(): float
+    {
+        return $this->totalArea / 10000;
     }
 
     public function setTotalPrice(float $price): self
@@ -148,11 +153,6 @@ final class TilePlan implements JsonSerializable
             'totalTiles' => $this->totalTiles,
             'totalRest' => $this->totalRest
         ];
-    }
-
-    private function inSquareMeter(float $totalAreaInSquareCm): float
-    {
-        return round($totalAreaInSquareCm / 10000, 2);
     }
 
     public function getRoomWidth(): float
