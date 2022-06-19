@@ -155,11 +155,6 @@ final class TilePlan implements JsonSerializable
         ];
     }
 
-    private function inSquareMeter(float $totalAreaInSquareCm): float
-    {
-        return round($totalAreaInSquareCm / 10000, 2);
-    }
-
     public function getRoomWidth(): float
     {
         return $this->roomWidth;
