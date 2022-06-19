@@ -6,16 +6,15 @@ namespace Tests\Unit\TilePlanner;
 
 use App\Form\TilePlannerType;
 use App\TilePlanner\Creator\RowCreatorInterface;
-use App\TilePlanner\TilePlanner;
-use App\TilePlanner\TilePlannerConstants;
-use App\TilePlanner\Models\TilePlanInput;
-use App\TilePlanner\Models\Rest;
 use App\TilePlanner\Models\Rests;
 use App\TilePlanner\Models\Row;
 use App\TilePlanner\Models\Tile;
+use App\TilePlanner\Models\TilePlanInput;
+use App\TilePlanner\TilePlanCreator;
+use App\TilePlanner\TilePlannerConstants;
 use PHPUnit\Framework\TestCase;
 
-final class TilePlannerTest extends TestCase
+final class TilePlanCreatorTest extends TestCase
 {
     public function test_plan_created_successful(): void
     {
@@ -33,9 +32,9 @@ final class TilePlannerTest extends TestCase
             ]
         );
 
-        $planner = new TilePlanner($rowCreator, $rests);
+        $creator = new TilePlanCreator($rowCreator, $rests);
 
-        $tileInput = TilePlanInput::fromFormData(
+        $tileInput = TilePlanInput::fromData(
             [
                 'room_width' => '100',
                 'room_depth' => '25',
@@ -48,10 +47,11 @@ final class TilePlannerTest extends TestCase
             ]
         );
 
-        $plan = $planner->createPlan($tileInput);
+        $plan = $creator->create($tileInput);
 
         self::assertCount(1, $plan->getRows());
-        self::assertEquals(0.25, $plan->getTotalArea());
+        self::assertEquals(2500, $plan->getTotalArea());
+        self::assertEquals(0.25, $plan->getTotalAreaInSquareMeter());
         self::assertEquals(0.5, $plan->getTotalPrice());
     }
 }

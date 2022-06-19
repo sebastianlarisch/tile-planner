@@ -30,7 +30,7 @@ final class RowCreatorTest extends TestCase
 
         $creator = new RowCreator($firstTileLengthCalculator, $lastTileLengthCalculator);
 
-        $tileInput = TilePlanInput::fromFormData(
+        $tileInput = TilePlanInput::fromData(
             [
             'room_width' => '200',
             'room_depth' => '100',

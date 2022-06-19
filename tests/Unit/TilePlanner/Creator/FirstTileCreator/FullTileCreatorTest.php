@@ -30,7 +30,7 @@ final class FullTileCreatorTest extends TestCase
 
         $creator = new FullTileCreator($rangeValidator, $deviationValidator, $rangeCreator);
 
-        $tileInput = TilePlanInput::fromFormData(
+        $tileInput = TilePlanInput::fromData(
             [
             'room_width' => '200',
             'room_depth' => '100',
@@ -62,7 +62,7 @@ final class FullTileCreatorTest extends TestCase
 
         $creator = new FullTileCreator($rangeValidator, $deviationValidator, $rangeCreator);
 
-        $tileInput = TilePlanInput::fromFormData(
+        $tileInput = TilePlanInput::fromData(
             [
             'room_width' => '200',
             'room_depth' => '100',
@@ -94,7 +94,7 @@ final class FullTileCreatorTest extends TestCase
 
         $creator = new FullTileCreator($rangeValidator, $deviationValidator, $rangeCreator);
 
-        $tileInput = TilePlanInput::fromFormData(
+        $tileInput = TilePlanInput::fromData(
             [
             'room_width' => '200',
             'room_depth' => '100',

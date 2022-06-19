@@ -19,7 +19,7 @@ final class LastTileFromRestCreatorTest extends TestCase
 
     public function setUp(): void
     {
-        $this->tileInput = TilePlanInput::fromFormData(
+        $this->tileInput = TilePlanInput::fromData(
             [
             'room_width' => '200',
             'room_depth' => '100',

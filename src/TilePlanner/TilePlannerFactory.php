@@ -27,9 +27,9 @@ use App\TilePlanner\Validator\RangeValidatorInterface;
 
 final class TilePlannerFactory
 {
-    public function createtilePlannerByType(string $layingType): TilePlanner
+    public function createTilePlanCreator(string $layingType): TilePlanCreator
     {
-        return new TilePlanner(
+        return new TilePlanCreator(
             $this->createRowCreator($layingType),
             $this->createRest()
         );

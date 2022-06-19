@@ -11,7 +11,7 @@ use App\TilePlanner\Models\Rests;
 use App\TilePlanner\Models\Row;
 use App\TilePlanner\Models\Tile;
 
-final class TilePlanner
+final class TilePlanCreator
 {
     private RowCreatorInterface $creator;
     private Rests $rests;
@@ -22,8 +22,10 @@ final class TilePlanner
         $this->rests = $rests;
     }
 
-    public function createPlan(TilePlanInput $tileInput): TilePlan
+    public function create(TilePlanInput $tileInput): TilePlan
     {
+        // TODO validate input
+
         $plan = new TilePlan();
         $totalRows = $this->getTotalRows($tileInput);
 
@@ -39,7 +41,7 @@ final class TilePlanner
         }
 
         $plan->setTotalArea($tileInput->getRoomWidthWithGaps() * $tileInput->getRoomDepthWithGaps());
-        $plan->setTotalPrice($plan->getTotalArea() * $tileInput->getCostsPerSquare());
+        $plan->setTotalPrice($plan->getTotalAreaInSquareMeter() * $tileInput->getCostsPerSquare());
         $plan->setRoomWidth($tileInput->getRoomWidthWithGaps());
         $plan->setRoomDepth($tileInput->getRoomDepthWithGaps());
         $plan->setTrash($this->mergeTiles($this->rests->getTrash()));

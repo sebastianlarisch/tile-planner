@@ -21,7 +21,7 @@ final class LastTileLengthCreatorTest extends TestCase
     {
         $creator = new LastTileLengthCreator([]);
 
-        $tileInput = TilePlanInput::fromFormData(
+        $tileInput = TilePlanInput::fromData(
             [
             'room_width' => '200',
             'room_depth' => '100',
@@ -54,7 +54,7 @@ final class LastTileLengthCreatorTest extends TestCase
             ]
         );
 
-        $tileInput = TilePlanInput::fromFormData(
+        $tileInput = TilePlanInput::fromData(
             [
             'room_width' => '200',
             'room_depth' => '100',
