@@ -1,41 +1,41 @@
 <section id="planner" class="p-4 row">
     <div class="configuration col-md-4 p-0 col-12">
-        {{ form_start(layerPlannerInputForm) }}
+        {{ form_start(tilePlannerInputForm) }}
         <div class="row m-3">
-            {% include 'select.twig' with {'field': layerPlannerInputForm.tile_type} %}
-            {% include 'input.twig' with {'field': layerPlannerInputForm.gap_width} %}
+            {% include 'select.twig' with {'field': tilePlannerInputForm.tile_type} %}
+            {% include 'input.twig' with {'field': tilePlannerInputForm.gap_width} %}
         </div>
 
         <div class="row m-3">
-            {% include 'select.twig' with {'field': layerPlannerInputForm.laying_type} %}
-            {% include 'input.twig' with {'field': layerPlannerInputForm.min_tile_length} %}
+            {% include 'select.twig' with {'field': tilePlannerInputForm.laying_type} %}
+            {% include 'input.twig' with {'field': tilePlannerInputForm.min_tile_length} %}
         </div>
 
         {% include 'subline.twig' with {'text': 'Raum'} %}
 
         <div class="row m-3">
-            {% include 'input.twig' with {'field': layerPlannerInputForm.room_width} %}
-            {% include 'input.twig' with {'field': layerPlannerInputForm.room_depth} %}
+            {% include 'input.twig' with {'field': tilePlannerInputForm.room_width} %}
+            {% include 'input.twig' with {'field': tilePlannerInputForm.room_depth} %}
         </div>
 
         {% include 'subline.twig' with {'text': 'Paneele'} %}
 
         <div class="row m-3">
-            {% include 'input.twig' with {'field': layerPlannerInputForm.tile_width} %}
-            {% include 'input.twig' with {'field': layerPlannerInputForm.tile_length} %}
+            {% include 'input.twig' with {'field': tilePlannerInputForm.tile_width} %}
+            {% include 'input.twig' with {'field': tilePlannerInputForm.tile_length} %}
         </div>
 
         {% include 'subline.twig' with {'text': 'Optional'} %}
 
         <div class="row m-3">
-            {% include 'input.twig' with {'field': layerPlannerInputForm.costs_per_square, 'unit': '€/m^2'} %}
+            {% include 'input.twig' with {'field': tilePlannerInputForm.costs_per_square, 'unit': '€/m^2'} %}
         </div>
 
         <div class="row m-4">
-            {{ form_widget(layerPlannerInputForm.submit, {'attr': {'class': 'btn btn-primary btn-block'}}) }}
+            {{ form_widget(tilePlannerInputForm.submit, {'attr': {'class': 'btn btn-primary btn-block'}}) }}
         </div>
 
-        {{ form_end(layerPlannerInputForm) }}
+        {{ form_end(tilePlannerInputForm) }}
     </div>
 
     {% if plan is defined and plan is not empty %}
