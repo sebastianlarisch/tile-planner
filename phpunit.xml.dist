@@ -31,7 +31,7 @@
             <directory suffix="Factory.php">src</directory>
             <directory suffix="Controller.php">src</directory>
             <directory suffix=".php">src/Form</directory>
-            <directory suffix=".php">src/LayerPlanner/Models</directory>
+            <directory suffix=".php">src/tilePlanner/Models</directory>
         </exclude>
     </coverage>
 </phpunit>
