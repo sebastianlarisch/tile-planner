@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\TilePlanner\Models;
 
 use App\Form\TilePlannerType;
-use Assert\Assert;
 
 final class TilePlanInput
 {
@@ -14,44 +13,32 @@ final class TilePlanInput
     private float $tileWidth;
     private float $tileLength;
     private float $minTileLength;
-    private float $gapWidth;
-    private float $costsPerSquare;
-    private string $layingType;
+    private ?float $gapWidth = null;
+    private ?float $costsPerSquare = 0;
+    private ?string $layingType = 'offset';
 
-    private function __construct(
-        float $roomWidth,
-        float $roomDepth,
-        float $tileWidth,
-        float $tileLength,
-        float $minTileLength,
-        string $layingType,
-        float $gapWidth,
-        float $costsPerSquare,
-    ) {
-        $this->roomWidth = $roomWidth;
-        $this->roomDepth = $roomDepth;
-        $this->tileWidth = $tileWidth;
-        $this->tileLength = $tileLength;
-        $this->minTileLength = $minTileLength;
-        $this->layingType = $layingType;
-        $this->gapWidth = $this->convertToCm($gapWidth);
-        $this->costsPerSquare = $costsPerSquare;
-
-        Assert::that($roomWidth)->notEmpty();
-    }
+    public function __construct(){}
 
     public static function fromData(array $inputData): self
     {
-        return new self(
-            (float)$inputData['room_width'],
-            (float)$inputData['room_depth'],
-            (float)$inputData['tile_width'],
-            (float)$inputData['tile_length'],
-            (float)$inputData['min_tile_length'],
-            (string)($inputData['laying_type'] ?? 'offset'),
-            (float)($inputData['gap_width'] ?? 0),
-            (float)($inputData['costs_per_square'] ?? 0),
-        );
+        $plan = new TilePlanInput();
+
+        $plan->setRoomWidth((float)$inputData['room_width']);
+        $plan->setRoomDepth((float)$inputData['room_depth']);
+        $plan->setTileLength((float)$inputData['tile_length']);
+        $plan->setTileWidth((float)$inputData['tile_width']);
+        $plan->setGapWidth((float)$inputData['gap_width']);
+        $plan->setMinTileLength((float)$inputData['min_tile_length']);
+        $plan->setCostsPerSquare((float)$inputData['costs_per_square']);
+
+        return $plan;
+    }
+
+    public function setRoomWidth(float $roomWidth): self
+    {
+        $this->roomWidth = $roomWidth;
+
+        return $this;
     }
 
     public function getRoomWidth(): float
@@ -63,18 +50,39 @@ final class TilePlanInput
         return $this->roomWidth;
     }
 
+    public function setMinTileLength(float $minTileLength): self
+    {
+        $this->minTileLength = $minTileLength;
+
+        return $this;
+    }
+
     public function getMinTileLength(): float
     {
         return $this->minTileLength;
     }
 
+    public function setRoomDepth(float $roomDepth): self
+    {
+        $this->roomDepth = $roomDepth;
+
+        return $this;
+    }
+
     public function getRoomDepth(): float
     {
-        if ($this->gapWidth > 0) {
+        if ($this->gapWidth !== null && $this->gapWidth > 0) {
             return $this->roomDepth - ($this->gapWidth * $this->getTotalVerticalGaps());
         }
 
         return $this->roomDepth;
+    }
+
+    public function setTileWidth(float $tileWidth): self
+    {
+        $this->tileWidth = $tileWidth;
+
+        return $this;
     }
 
     public function getTileWidth(): float
@@ -82,24 +90,21 @@ final class TilePlanInput
         return $this->tileWidth;
     }
 
+    public function setTileLength(float $tileLength): self
+    {
+        $this->tileLength = $tileLength;
+
+        return $this;
+    }
+
     public function getTileLength(): float
     {
         return $this->tileLength;
     }
 
-    public function getGapWidth(): float
-    {
-        return $this->gapWidth;
-    }
-
     public function setGapWidth(float $gapWidth): void
     {
         $this->gapWidth = $gapWidth;
-    }
-
-    private function convertToCm(float $gapWidthInMm): float
-    {
-        return $gapWidthInMm / 10;
     }
 
     private function getTotalHorizontalGaps(): int
@@ -130,6 +135,13 @@ final class TilePlanInput
     public function getRoomDepthWithGaps(): float
     {
         return $this->roomDepth;
+    }
+
+    public function setCostsPerSquare(float $costsPerSquare = 0): self
+    {
+        $this->costsPerSquare = $costsPerSquare;
+
+        return $this;
     }
 
     public function getCostsPerSquare(): float
