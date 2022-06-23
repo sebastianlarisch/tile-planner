@@ -10,13 +10,12 @@ use App\TilePlanner\TilePlannerFactory;
 
 final class TilePlanner
 {
-    public static function createPlan(array $inputData): TilePlan
+    public static function createPlan(TilePlanInput $planInput): TilePlan
     {
-        $tileInput = TilePlanInput::fromData($inputData);
         $factory = new TilePlannerFactory();
 
         return $factory
-            ->createTilePlanCreator($tileInput->getLayingType())
-            ->create($tileInput);
+            ->createTilePlanCreator($planInput->getLayingType())
+            ->create($planInput);
     }
 }

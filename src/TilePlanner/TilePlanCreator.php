@@ -25,7 +25,6 @@ final class TilePlanCreator
     public function create(TilePlanInput $tileInput): TilePlan
     {
         // TODO validate input
-
         $plan = new TilePlan();
         $totalRows = $this->getTotalRows($tileInput);
 
