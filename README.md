@@ -1,3 +1,10 @@
+<a href="https://github.com/sebastianlarisch/tile-planner/actions">
+    <img src="https://github.com/sebastianlarisch/tile-planner/actions/workflows/build.yml/badge.svg" alt="GitHub Build Status">
+</a>
+<a href="https://scrutinizer-ci.com/g/sebastianlarisch/tile-planner/?branch=master">
+    <img src="https://scrutinizer-ci.com/g/sebastianlarisch/tile-planner/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality" />
+</a>
+
 # Tile Planner
 
 ## Description
